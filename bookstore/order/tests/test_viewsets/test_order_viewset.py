@@ -6,7 +6,6 @@ from rest_framework import status
 from product.tests.factories import CategoryFactory, ProductFactory
 from order.tests.factories import OrderFactory, UserFactory
 
-from product.models import Product
 
 from order.models import Order
 
@@ -20,7 +19,7 @@ class TestOrderViewSet (APITestCase):
     
     def test_order(self):        
         response = self.client.get(
-            reverse('order-list', kwargs = {'version': 'v1'})
+            reverse('order-list', kwargs = {'version': 'v1'}),
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         
@@ -43,13 +42,11 @@ class TestOrderViewSet (APITestCase):
             data=data,
             content_type = 'application/json'
         )
+        import pdb; pdb.set_trace()
         
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        created_order = Order.objects.get(user=user)
         
-    
-
-
-
-
+        created_order = Order.objects.get(user='user')
+        self.assertEqual(created_order.user, 'user')
+        
 

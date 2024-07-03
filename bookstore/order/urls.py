@@ -1,7 +1,7 @@
 from django.urls import path,include
 from rest_framework import routers
 
-from .order_viewset import OrderViewSet
+from .viewsets.order_viewset import OrderViewSet
 
 
 router = routers.SimpleRouter()

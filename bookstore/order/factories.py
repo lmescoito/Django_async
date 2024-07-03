@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 
 from order.models import Order
 
+from product.factories import ProductFactory
+
 class UserFactory(factory.django.DjangoModelFactory):
     email = factory.Faker('pystr')
     username = factory.Faker('pystr')

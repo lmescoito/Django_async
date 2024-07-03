@@ -1,8 +1,8 @@
 from django.urls import reverse
 from rest_framework.test import APITestCase, APIClient
 import json
-from rest_framework import status
-from product.tests.factories import CategoryFactory 
+from rest_framework.views import status
+from product.factories import CategoryFactory 
 
 from product.models import Category
 
@@ -18,23 +18,21 @@ class CategoryViewSet (APITestCase):
             
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        category_data = json.loads(response.content).get('results', [])
-        self.assertTrue(len(category_data)>0)
-     
+        category_data = json.loads(response.content)
         
-        self.assertEqual(category_data[0]['title'],self.category.title)
+        self.assertEqual(category_data['results'][0]['title'],self.category.title)
         
         
     def test_create_category(self):
-        response= self.client.post(
-            reverse('category-list',kwargs={'version': 'v1'}),
-            data=json.dumps({
-                'title': 'technology'
-                }),
-            content_type = 'application/json'
-        )
+        data = json.dumps({
+            'title':'technology'
+        })
         
-        print (response.content)
+        response = self.client.post(
+            reverse('category-list', kwargs={'version':'v1'}),
+            data=data,
+            content_type= 'application/json'
+        )
         
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         

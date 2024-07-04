@@ -4,7 +4,7 @@ package-mode = false
 version = "0.1.0"
 description = "Bookstore API"
 authors = ["lmescoito <lmescoito@hotmail.com>"]
-readme = "README.md"
+
 
 [tool.poetry.dependencies]
 python = "^3.12"

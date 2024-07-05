@@ -6,7 +6,10 @@ RUN apt-get update && apt-get install --no-install-recommends -y curl
 # Install Poetry
 RUN curl -sSL https://install.python-poetry.org | python3 - && \
     export PATH="$HOME/.local/bin:$PATH"
-
+# install postgres dependencies 
+RUN apt-get update\
+&& apt-get -y install libpq-dev gcc \
+&& pip install psycopg2
 # Set environment variable for Poetry
 ENV POETRY_VIRTUALENVS_IN_PROJECT=true
 

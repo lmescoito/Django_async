@@ -1,6 +1,5 @@
 [tool.poetry]
 name = "bookstore"
-package-mode = false
 version = "0.1.0"
 description = "Bookstore API"
 authors = ["lmescoito <lmescoito@hotmail.com>"]
@@ -14,6 +13,8 @@ django = "^5.0.6"
 djangorestframework = "^3.15.2"
 django-extensions = "^3.2.3"
 django-debug-toolbar = "^4.4.2"
+psycopg = "^3.2.1"
+flake8 = "^7.1.0"
 
 
 [build-system]

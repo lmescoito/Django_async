@@ -17,6 +17,8 @@ Including another URLconf
 import debug_toolbar
 from django.contrib import admin
 from django.urls import path, re_path, include
+from django.http import HttpResponseRedirect
+from rest_framework.authtoken.views import obtain_auth_token
 
 
 urlpatterns = [
@@ -24,4 +26,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^bookstore/(?P<version>(v1|v2))/', include('order.viewsets.urls')),
     re_path(r'^bookstore/(?P<version>(v1|v2))/', include('product.viewsets.urls')),
+    path('api-token-auth/', obtain_auth_token, name='api_token_auth'),
+    path('', lambda request: HttpResponseRedirect('/bookstore/v1/')),
+   
 ]
+     

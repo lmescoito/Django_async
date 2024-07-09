@@ -1,6 +1,5 @@
 [tool.poetry]
 name = "bookstore"
-package-mode = false
 version = "0.1.0"
 description = "Bookstore API"
 authors = ["lmescoito <lmescoito@hotmail.com>"]

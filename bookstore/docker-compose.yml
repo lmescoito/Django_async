@@ -1,0 +1,28 @@
+version: '2.28.0'
+
+services:
+  db:
+    image: postgres:16.0-alpine
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/postgres_data
+    environment:
+      - POSTGRES_USER=dev
+      - POSTGRES_PASSWORD=dev
+      - POSTGRES_DB=bookstore_db
+  web: #Application name
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - app-data:/usr/src/app
+    ports:
+      - 8000:8000
+    env_file:
+      - ./env.dev
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
+  app-data:

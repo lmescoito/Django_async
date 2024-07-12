@@ -152,4 +152,4 @@ INTERNAL_IPS = [
     '127.0.0.1',
 ]
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'bookstores-b55e5695fcb0.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'bookstores-b55e5695fcb0.herokuapp.com', 'lmescoito.pythonanywhere.com']

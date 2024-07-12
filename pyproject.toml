@@ -6,7 +6,7 @@ authors = ["lmescoito <lmescoito@hotmail.com>"]
 
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.10"
 pytest = "^8.2.2"
 factory-boy = "^3.3.0"
 django = "^5.0.6"
@@ -17,6 +17,8 @@ psycopg = "^3.2.1"
 flake8 = "^7.1.0"
 whitenoise = "^6.7.0"
 gunicorn = "^22.0.0"
+gitpython = "^3.1.43"
+poetry="^1.8.3"
 
 
 [build-system]

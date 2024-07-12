@@ -17,6 +17,7 @@ psycopg = "^3.2.1"
 flake8 = "^7.1.0"
 whitenoise = "^6.7.0"
 gunicorn = "^22.0.0"
+gitpython = "^3.1.43"
 
 
 [build-system]
